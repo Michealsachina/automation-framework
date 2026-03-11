@@ -1,0 +1,26 @@
+{
+  "name": "automation-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "npx playwright test",
+  "test:chrome": "npx playwright test --project=Chrome",
+  "test:firefox": "npx playwright test --project=Firefox",
+  "test:headed": "npx playwright test --headed",
+  "test:report": "npx playwright show-report reports/html-report",
+  "allure:generate": "allure generate allure-results --clean -o allure-report",
+  "allure:open": "allure open allure-report"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.7.0",
+    "@cucumber/html-formatter": "^23.0.0",
+    "@playwright/test": "^1.58.2",
+    "allure-commandline": "^2.37.0",
+    "allure-playwright": "^3.6.0"
+  }
+}
