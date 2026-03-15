@@ -1,8 +1,5 @@
-# .github/workflows/playwright.yml
-
 name: Playwright Tests
 
-# எப்போ run ஆகணும்?
 on:
   push:
     branches: [main]
@@ -11,37 +8,29 @@ on:
 
 jobs:
   test:
-    # Ubuntu server-ல run ஆகும்
     runs-on: ubuntu-latest
 
     steps:
-      # Code checkout பண்றோம்
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Node.js setup பண்றோம்
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
-      # Dependencies install பண்றோம்
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      # Playwright browsers install பண்றோம்
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      # API Tests run பண்றோம்
       - name: Run API Tests
         run: npx playwright test tests/api.spec.js --project=chromium
 
-      # Products Tests run பண்றோம்
       - name: Run Products Tests
         run: npx playwright test tests/products.spec.js --project=chromium
 
-      # Report upload பண்றோம்
       - name: Upload test report
         uses: actions/upload-artifact@v4
         if: always()
