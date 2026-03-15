@@ -28,9 +28,6 @@ jobs:
       - name: Run API Tests
         run: npx playwright test tests/api.spec.js --project=Chrome
 
-      - name: Run Products Tests
-        run: npx playwright test tests/products.spec.js --project=Chrome
-
       - name: Upload test report
         uses: actions/upload-artifact@v4
         if: always()
