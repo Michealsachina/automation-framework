@@ -6,7 +6,7 @@ test.describe('API Testing - JSONPlaceholder', () => {
 
   const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
-  // TC_008: GET - Users list எடுக்கிறோம்
+  // TC_008: GET - Users list எடுக்கோம்
   test('TC_008: GET - Users list successfully return ஆகணும்', async () => {
     const apiContext = await request.newContext();
 
